@@ -42,4 +42,4 @@ for i in range(0, 40, 10):
 
 df = pd.DataFrame(job_list)
 print(df.head())
-df.to_csv('jobs.csv')
+df.to_csv('jobs.csv', index=False)
