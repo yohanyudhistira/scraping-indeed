@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+
 def extract(page):
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36'}
@@ -28,16 +29,17 @@ def transform(soup):
             'salary': salary,
             'summary': summary
         }
-        joblist.append(job)
+        job_list.append(job)
     return
 
-joblist = []
 
-for i in range(0,40,10):
+job_list = []
+
+for i in range(0, 40, 10):
     print(f'Getting pages.....,{i}')
     c = extract(0)
     transform(c)
 
-df = pd.DataFrame(joblist)
+df = pd.DataFrame(job_list)
 print(df.head())
 df.to_csv('jobs.csv')
