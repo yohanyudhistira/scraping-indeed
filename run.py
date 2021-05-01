@@ -5,7 +5,8 @@ import pandas as pd
 
 def extract(page):
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36'}
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36'
+    }
     url = f'https://uk.indeed.com/jobs?q=python+developer&l=London,+Greater+London&start={page}'
     r = requests.get(url, headers)
     soup = BeautifulSoup(r.content, 'html.parser')
